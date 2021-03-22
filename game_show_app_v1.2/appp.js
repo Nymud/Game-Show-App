@@ -123,7 +123,7 @@ function appReset() {
     tries = 0;
     const buttonReset = document.querySelectorAll('#qwerty button');
     const correctButtons = document.querySelectorAll('.letter');
-    const triesHearts = document.querySelectorAll('.tries');
+    const triesHearts = document.querySelectorAll('.tried');
 
     for( let i = 0; i < correctButtons.length; i++){
       correctButtons[i].remove();
@@ -135,11 +135,11 @@ function appReset() {
     }
 
     for(let i=0; i < triesHearts.length;i++){
-      triesHearts[i].src='./images/liveHeart.png';
-      triesHearts[i].parentElement.classList.add('tries');
-      triesHearts[i].parentElement.classList.remove('tried');
+      triesHearts[i].childNodes[0].src='./images/liveHeart.png';
+      triesHearts[i].classList.add('tries');
+      triesHearts[i].classList.remove('tried');
     }
-
+    mainHead.innerHTML = "WHEEL OF SUCCESS";
     addPhrasesDisplay(getRandomPhrasesArray(phrases));
     destoryButton(button);
   });
