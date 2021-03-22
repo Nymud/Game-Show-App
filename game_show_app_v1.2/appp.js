@@ -22,7 +22,12 @@ startGame.addEventListener('click', function() {
       letters.parentNode.removeChild(letters[i]);
     }
   }
-  overlay.style.display='none';
+  if (mainHead.textContent.toLocaleLowerCase() == "wheel of success"){
+    overlay.style.display='none';
+  }else{
+    window.alert("Please press the rest button for you to be able to start the game again.");
+  }
+
 });
 
 //get randomphrase array and use split method on it.
@@ -140,6 +145,9 @@ function appReset() {
       triesHearts[i].classList.remove('tried');
     }
     mainHead.innerHTML = "WHEEL OF SUCCESS";
+    overlay.classList.remove("lose");
+    overlay.classList.remove("win");
+    overlay.classList.add("start");
     addPhrasesDisplay(getRandomPhrasesArray(phrases));
     destoryButton(button);
   });
